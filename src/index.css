@@ -1,0 +1,135 @@
+.app {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  border-radius: 8px;
+  transition: background 0.5s ease; /* Smooth background transitions */
+}
+
+form {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.weather-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.timestamp {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.weather-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.weather-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.weather-details p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* Dynamic background colors */
+.sunny {
+  background: linear-gradient(135deg, #f7e08e, #f4c430);
+}
+.cloudy {
+  background: linear-gradient(135deg, #b0bec5, #78909c);
+}
+.rainy {
+  background: linear-gradient(135deg, #4fc3f7, #0288d1);
+}
+.snowy {
+  background: linear-gradient(135deg, #e0f7fa, #b0bec5);
+}
+.default {
+  background: linear-gradient(135deg, #e0e0e0, #bdbdbd);
+}
+.no-data {
+  background: #f5f5f5;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .weather-card {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .weather-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .weather-icon {
+    margin: 0 auto;
+  }
+}
