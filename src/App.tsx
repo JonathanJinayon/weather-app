@@ -7,7 +7,7 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const API_KEY = "3caf30839895ec6956b98a984593b22b";
+  const API_KEY = "your_api key";
 
   const featchWeather = async (e: any) => {
     e.preventDefault();
