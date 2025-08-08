@@ -4,12 +4,12 @@ import "./index.css";
 
 function App() {
   const [city, setCity] = useState("");
-  const [weather, setWeather] = useState(null);
-  const [error, setError] = useState(null);
+  const [weather, setWeather] = useState<any | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const API_KEY = "your_api key";
 
-  const featchWeather = async (e: any) => {
+  const fetchWeather = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!city) return;
     setLoading(true);
@@ -35,17 +35,25 @@ function App() {
   return (
     <div className="app">
       <h1>Weather-App</h1>
-      <form onSubmit={featchWeather}>
+      <form onSubmit={fetchWeather} aria-label="Search city weather">
         <input
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
           placeholder="Enter City"
+          aria-label="City name"
         />
-        <button type="submit">Get Weather</button>
+        <button type="submit" aria-label="Get weather">Get Weather</button>
       </form>
-      {error && <p className="error">{error}</p>}
-      {loading && <p>Loading Weather Data...</p>}
+      {error && (
+        <p className="error" role="alert" aria-live="assertive">{error}</p>
+      )}
+      {loading && (
+        <div className="loading" role="status" aria-live="polite">
+          <span className="spinner" aria-hidden="true"></span>
+          Loading weather data...
+        </div>
+      )}
       {weather && <WeatherDisplay weather={weather} />}
     </div>
   );

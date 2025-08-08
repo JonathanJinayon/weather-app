@@ -36,7 +36,7 @@ function WeatherDisplay({ weather }: WeatherDisplayProps) {
   }
 
   const weatherCondition = weather.weather[0]?.main.toLowerCase() || 'clear';
-  const iconUrl = `http://openweathermap.org/img/wn/${weather.weather[0]?.icon || '01d'}@2x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0]?.icon || '01d'}@2x.png`;
   const timestamp = weather.dt ? new Date(weather.dt * 1000).toLocaleTimeString() : 'Unknown';
 
   // Dynamic background based on weather condition
@@ -78,7 +78,7 @@ function WeatherDisplay({ weather }: WeatherDisplayProps) {
           src={iconUrl}
           alt={`Weather condition: ${weather.weather[0]?.description || 'Unknown'}`}
           className="weather-icon"
-          onError={(e) => (e.currentTarget.src = '/fallback-weather-icon.png')} // Fallback icon
+          onError={(e) => (e.currentTarget.src = '/fallback-weather-icon.svg')}
         />
         <div className="weather-details">
           <p>
